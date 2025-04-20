@@ -11,6 +11,7 @@ class EightBallViewController: UIViewController {
     
     let askButton = UIButton()
     let settingsButton = UIButton()
+    let questionTextField = UITextField()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class EightBallViewController: UIViewController {
     func setupButton() {
         view.addSubview(askButton)
         view.addSubview(settingsButton)
+        view.addSubview(questionTextField)
         
         askButton.configuration = .filled()
         askButton.configuration?.baseBackgroundColor = .systemBlue
@@ -28,19 +30,27 @@ class EightBallViewController: UIViewController {
         settingsButton.configuration = .gray()
         settingsButton.configuration?.title = "Settings"
         
+        questionTextField.placeholder = "Enter your question"
+        questionTextField.backgroundColor = .white
+        
         askButton.translatesAutoresizingMaskIntoConstraints = false
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        questionTextField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            askButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            askButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            askButton.widthAnchor.constraint(equalToConstant: 200),
+            questionTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            questionTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            questionTextField.widthAnchor.constraint(equalToConstant: 200),
+            questionTextField.heightAnchor.constraint(equalToConstant: 50),
+            
+            askButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80),
+            askButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+            askButton.widthAnchor.constraint(equalToConstant: 150),
             askButton.heightAnchor.constraint(equalToConstant: 50),
             
-            //settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            settingsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            settingsButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 20),
-            settingsButton.widthAnchor.constraint(equalToConstant: 200),
+            settingsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80),
+            settingsButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
+            settingsButton.widthAnchor.constraint(equalToConstant: 150),
             settingsButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
