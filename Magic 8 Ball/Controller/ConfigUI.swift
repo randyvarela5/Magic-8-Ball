@@ -1,27 +1,16 @@
 //
-//  EightBallViewController.swift
+//  ConfigUI.swift
 //  Magic 8 Ball
 //
-//  Created by Randy Varela on 4/19/25.
+//  Created by Randy Varela on 4/20/25.
 //
 
+import Foundation
 import UIKit
 
-class EightBallViewController: UIViewController {
+extension EightBallViewController {
     
-    let askButton = UIButton()
-    let settingsButton = UIButton()
-    let questionTextField = UITextField()
-    let eightBallImage = UIImageView()
-    let titleImage = UIImageView()
-    let backroundImage = UIImageView()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemGray2
-        setupButton()
-    }
-    func setupButton() {
+    func setupUI() {
         view.addSubview(askButton)
         view.addSubview(settingsButton)
         view.addSubview(questionTextField)
@@ -88,8 +77,5 @@ class EightBallViewController: UIViewController {
             settingsButton.widthAnchor.constraint(equalToConstant: 150),
             settingsButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-        
     }
-
 }
-
