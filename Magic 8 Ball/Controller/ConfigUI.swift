@@ -46,6 +46,8 @@ extension EightBallViewController {
         titleImage.translatesAutoresizingMaskIntoConstraints = false
         backroundImage.translatesAutoresizingMaskIntoConstraints = false
         
+        settingsButton.addTarget(self, action: #selector(goToSettingScreen), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             backroundImage.topAnchor.constraint(equalTo: view.topAnchor),
             backroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -77,5 +79,11 @@ extension EightBallViewController {
             settingsButton.widthAnchor.constraint(equalToConstant: 150),
             settingsButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    @objc func goToSettingScreen() {
+        let settingsScreen = SettingsViewController()
+        settingsScreen.title = "Settings"
+        navigationController?.pushViewController(settingsScreen, animated: true)
     }
 }
