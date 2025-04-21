@@ -87,3 +87,27 @@ extension EightBallViewController {
         navigationController?.pushViewController(settingsScreen, animated: true)
     }
 }
+
+extension SettingsViewController {
+    
+    func setupTableVIew() {
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(SwitchCell.self, forCellReuseIdentifier: "SwitchCell")
+    }
+    
+    func setupDefaultButton() {
+        //defaultButton.buttonType = UIButton(type: .system)
+        view.addSubview(defaultButton)
+        defaultButton.setTitle("Restore Defaults", for: .normal)
+    }
+}
