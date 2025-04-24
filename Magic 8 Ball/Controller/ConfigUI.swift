@@ -106,8 +106,20 @@ extension SettingsViewController {
     }
     
     func setupDefaultButton() {
-        //defaultButton.buttonType = UIButton(type: .system)
+        defaultButton.configuration = .filled()
         view.addSubview(defaultButton)
         defaultButton.setTitle("Restore Defaults", for: .normal)
+        defaultButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            //            defaultButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            //            defaultButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            //            defaultButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+            defaultButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            defaultButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            defaultButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            defaultButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            defaultButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }

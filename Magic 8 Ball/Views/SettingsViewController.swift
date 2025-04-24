@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupTableVIew()
+        setupDefaultButton()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
